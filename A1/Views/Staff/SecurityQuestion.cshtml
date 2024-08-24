@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = "Security Question";
+}
+
+<h2>Security Question</h2>
+
+<form asp-action="SecurityQuestion" method="post">
+    <div class="form-group">
+        <label for="answer">Who wrote this silly question?</label>
+        <input type="text" name="answer" class="form-control" />
+        <span class="text-danger">@ViewBag.Message</span>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

@@ -1,0 +1,39 @@
+﻿@model IEnumerable<A1.Models.CustomerBooking>
+
+@{
+    ViewData["Title"] = "Bookings";
+}
+
+<h2>Bookings</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>Date</th>
+            <th>Services Required</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var booking in Model)
+        {
+            <tr>
+                <td>@booking.Id</td>
+                <td>@booking.FirstName</td>
+                <td>@booking.LastName</td>
+                <td>@booking.Email</td>
+                <td>@booking.PhoneNumber</td>
+                <td>@booking.Date.ToString("g")</td>
+                <td>@booking.ServicesRequired</td>
+                <td><a asp-action="Edit" asp-route-id="@booking.Id">Edit</a></td>
+                <td><a asp-action="Delete" asp-route-id="@booking.Id">Delete</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

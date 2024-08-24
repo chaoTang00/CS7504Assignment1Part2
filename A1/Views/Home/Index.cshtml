@@ -1,0 +1,20 @@
+﻿@using A1.ViewModels
+@model HomeViewModel
+
+<partial name="_Carousel"/>
+
+<div class="text-center">
+    <img src="Images/logo-mark.jpg" class="logo-mark mx-auto" />
+    <h1>Current Promotions</h1>
+    <h5>Best dental deal in this summer season!</h5>
+
+    <div class="row on-promotion">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            @foreach (var treatment in Model.OnPromotion)
+            {
+                <partial name="_TreatmentCard" model="treatment"/>
+            }
+        </div>
+
+    </div>
+</div>

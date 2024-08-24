@@ -1,0 +1,23 @@
+﻿@model Treatment
+
+<div class="col">
+    <div class="card treatment-card">
+        <img src="@Model.ImageThumbnailUrl" class="card-img-top" alt="@Model.TreatmentName">
+        <div class="card-body treatment-button">
+            <h4 class="d-grid">
+            </h4>
+
+            <div class="d-flex justify-content-between mt-2">
+                <h2 class="text-start">
+                    <a asp-controller="Treatment"
+                       asp-action="Details"
+                       asp-route-id="@Model.TreatmentId"
+                       class="treatment-link">@Model.TreatmentName</a>
+                </h2>
+                <h5 class="text-nowrap">
+                    @Model.Price.ToString("c")
+                </h5>
+            </div>
+        </div>
+    </div>
+</div>

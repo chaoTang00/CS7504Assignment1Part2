@@ -1,0 +1,33 @@
+﻿@model IEnumerable<A1.Models.Treatment>
+
+@{
+    ViewBag.Title = "Search Results";
+}
+
+<h2>Search Results</h2>
+
+@if (Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var treatment in Model)
+            {
+                <tr>
+                    <td>@treatment.TreatmentName</td>
+                    <td>@treatment.Description</td>
+                    <td>@treatment.Price.ToString("c")</td>                    
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No treatments found.</p>
+}

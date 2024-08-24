@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+
+@if (User.Identity.IsAuthenticated)
+{
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Bookings" asp-action="Index">Bookings</a>
+    </li>
+}
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>New City Dental Services</title>
+    <link href='https://fonts.googleapis.com/css?family=Work+Sans' rel='stylesheet' type='text/css'>
+    <script src="~/lib/jquery/jquery.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/lib/bootstrap/js/bootstrap.js"></script>
+    <link href="~/css/site.css" rel="stylesheet" />
+    <base href="/" />
+</head>
+<body>
+    <div class="container">
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark"
+                 aria-label="NCDS navigation header">
+                <div class="container-xl">
+                    <a class="navbar-brand" asp-controller="Home" asp-action="Index">
+                        <img src="images/logo-word.jpg" width="151" height="47" class="d-inline-block align-top mb-2 mt-1"
+                             alt="NCDS Logo">
+                    </a>
+
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarCollapse">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a asp-controller="Home" asp-action="Index" class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a asp-controller="Treatment" asp-action="List" class="nav-link">Treatments</a>
+                            </li>              
+                            <li class="nav-item">
+                                <a asp-controller="Booking" asp-action="BookingForm" class="nav-link">Book Now</a>
+                            </li>
+
+                            @using (Html.BeginForm("Search", "Home", FormMethod.Get))
+                            {
+                                <input type="text" name="searchQuery" placeholder="I'm looking for..." required/>
+                                <button type="submit">Search</button>
+                                @Html.ValidationMessage("query", "", new { @class = "text-danger" })
+                            }
+
+                            <vc:category-menu></vc:category-menu>
+
+                        </ul>
+                        <vc:shopping-cart-summary></vc:shopping-cart-summary>
+                    </div>
+
+                    <a asp-controller="Staff" asp-action="Login">Staff Login</a>
+
+                    <br>||||</br>
+
+                    <a asp-controller="Staff" asp-action="SecurityQuestion">Register</a>
+
+                </div>
+            </nav>
+        </header>
+
+        @RenderBody()
+    </div>
+</body>
+</html>

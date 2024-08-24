@@ -1,0 +1,21 @@
+﻿@page
+@model A1.Pages.SecurityQuestionModel
+@{
+    ViewData["Title"] = "SecurityQuestion";
+}
+
+<h2>SecurityQuestion</h2>
+
+<form method="post">
+    <div>
+        <label for="SecurityQuestion">Who wrote this silly question:</label>
+        <input type="text" id="SecurityQuestion" name="SecurityQuestion" required />
+    </div>
+
+    <div>
+        <label for="answer">Correct Answer:</label>
+        <input type="text" id="answer" name="answer" required />
+    </div>
+
+    <button type="submit">Submit</button>
+</form>

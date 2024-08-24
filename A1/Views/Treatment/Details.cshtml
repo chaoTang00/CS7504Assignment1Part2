@@ -1,0 +1,18 @@
+﻿@model Treatment
+
+<h3 class="my-5">
+    @Model.TreatmentName
+</h3>
+
+<div class="row gx-5">
+    <img alt="@Model.TreatmentName" src="@Model.ImageUrl" class="img-fluid col-5"/>
+    <div class="col-7">
+        <p>@Model.Description</p>
+        <h3 class="pull-right">@Model.Price.ToString("c")</h3>
+        <div class="booking">
+            <p class="button">
+
+            </p>
+        </div>
+    </div>
+</div>
